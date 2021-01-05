@@ -32,7 +32,7 @@ const Header = () => {
       </div>
 
       <div className="nav">
-        <Link to={!user && "/login"}>
+        <Link to={!user ? "/login" : "/"}>
           <div onClick={handleAuthenticaton} className="option">
             <span className="optionLineOne">
               Hello {!user ? "Guest" : user.email}

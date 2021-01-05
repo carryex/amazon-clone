@@ -6,9 +6,33 @@ import { auth } from "../../firebase/firebase";
 import "./Login.styles.scss";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const signIn = (e) => {
+    e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
+  };
   return (
     <div className="login">
       <Link to="/">
@@ -36,7 +60,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit" className="signInButton">
+          <button type="submit" onClick={signIn} className="signInButton">
             Sign In
           </button>
         </form>
@@ -47,7 +71,9 @@ const Login = () => {
           Interest-Based Ads Notice.
         </p>
 
-        <button className="registerButton">Create your Amazon Account</button>
+        <button onClick={register} className="registerButton">
+          Create your Amazon Account
+        </button>
       </div>
     </div>
   );

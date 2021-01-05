@@ -12,6 +12,7 @@ import Home from "./pages/home/Home";
 import Checkout from "./pages/checkout/Checkout";
 import Login from "./pages/login/Login";
 import Payment from "./pages/payment/Payment";
+import Orders from "./pages/orders/Orders";
 
 import "./App.css";
 
@@ -42,6 +43,10 @@ const App = () => {
     <div className="app">
       <Router>
         <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>

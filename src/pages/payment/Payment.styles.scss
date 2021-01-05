@@ -1,0 +1,37 @@
+%shared {
+  flex: 0.8;
+}
+.payment {
+  background-color: white;
+  .title {
+    flex: 0.2;
+  }
+  .items {
+    @extend %shared;
+  }
+  .address {
+    @extend %shared;
+  }
+  .details {
+    @extend %shared;
+  }
+  .container {
+    .section {
+      display: flex;
+      padding: 20px;
+      margin: 0 20px;
+      border-bottom: 1px solid lightgray;
+    }
+    h1 {
+      text-align: center;
+      padding: 10px;
+      font-weight: 400;
+      background-color: rgb(234, 237, 237);
+      border-bottom: 1px solid lightgray;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

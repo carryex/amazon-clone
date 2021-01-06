@@ -14,6 +14,26 @@
   }
   .details {
     @extend %shared;
+
+    form {
+      max-width: 400px;
+
+      button {
+        background-color: #f9c14b;
+        border-radius: 2px;
+        width: 100%;
+        height: 30px;
+        border: 1px solid;
+        font-weight: bolder;
+        margin-top: 10px;
+        border-color: #a88734 #9c7e31 #846a29;
+        color: #111;
+      }
+    }
+
+    h3 {
+      padding-bottom: 20px;
+    }
   }
   .container {
     .section {

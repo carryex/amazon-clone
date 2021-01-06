@@ -12,7 +12,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     if (user) {
-      db.collection("user")
+      db.collection("users")
         .doc(user?.uid)
         .collection("orders")
         .orderBy("created", "desc")
@@ -20,7 +20,7 @@ const Orders = () => {
           setOrders(
             snapshot.docs.map((doc) => ({
               id: doc.id,
-              data: doc.data,
+              data: doc.data(),
             }))
           )
         );
@@ -31,11 +31,9 @@ const Orders = () => {
   return (
     <div className="orders">
       <h1>Your orders</h1>
-      <div className="order">
-        {orders?.map((order) => (
-          <Order order={order} />
-        ))}
-      </div>
+      {orders?.map((order) => (
+        <Order order={order} />
+      ))}
     </div>
   );
 };
